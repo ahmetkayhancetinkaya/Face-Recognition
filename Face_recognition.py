@@ -7,13 +7,13 @@ from PIL import Image
 
 id = 0
 
-# names related to ids: example ==> yasinakun: id=1,  etc
+
 names = ['None', 'yasinakun', 'X', 'A', 'B', 'C']
 
 relay_pin = 13
 GPIO.setmode(GPIO.BOARD)
 GPIO.setup(relay_pin, GPIO.OUT)
-p=GPIO.PWM(relay_pin, 80)  # 80hz frequency
+p=GPIO.PWM(relay_pin, 80) 
 
 
 with open('labels', 'rb') as f:
@@ -44,7 +44,7 @@ while True:
 
         id, confidence = recognizer.predict(gray[y:y + h, x:x + w])
 
-        # Check if confidence is less them 100 ==> "0" is perfect match
+   
         if (confidence < 100):
             p.start(2.5)
             id = names[id]
@@ -59,7 +59,7 @@ while True:
 
     cv2.imshow('camera', im)
 
-    k = cv2.waitKey(10) & 0xff  # Press 'ESC' for exiting video
+    k = cv2.waitKey(10) & 0xff  
     if k == 27:
         break
 
