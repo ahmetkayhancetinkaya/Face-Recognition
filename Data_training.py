@@ -7,10 +7,10 @@ import cv2
 import pickle
 
 faceCascade = cv2.CascadeClassifier("haarcascade_frontalface_default.xml")
-# OpenCV paketinde bulunan LBPH (YEREL İKİLİ PATTERNS HISTOGRAMS) yüz tanıyıcı kullanıyoruz.
+
 recognizer = cv2.face.LBPHFaceRecognizer_create()
 
-# Geçerli çalışma dizininin yolunu alınır ve images dizinine gidilir.
+
 
 baseDir = os.path.dirname(os.path.abspath(__file__))
 imageDir = os.path.join(baseDir, "images")
